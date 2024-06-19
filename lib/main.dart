@@ -1,4 +1,5 @@
 
+import 'package:chat/pages/chats_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(ChatApp());
@@ -9,7 +10,7 @@ class ChatApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xff22232A),
-        accentColor: Color(0xff2489FF),
+        hintColor: Color(0xff2489FF),
       ),
       home: HomePage(),
       debugShowCheckedModeBanner: false,
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
       body: ChatsScreen(),
       bottomNavigationBar: _buildBottomNavigationBar(),
       floatingActionButton: FloatingActionButton(onPressed: (){},
-        backgroundColor: Theme.of(context).accentColor,
+        backgroundColor: Theme.of(context).hintColor,
         child: Icon(Icons.add,
           color: Colors.white,
         ),

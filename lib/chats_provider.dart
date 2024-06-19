@@ -1,4 +1,5 @@
 
+import 'package:chat/model/chat.dart';
 import 'package:chat_app/model/chat.dart';
 
 import 'model/message.dart';
@@ -6,7 +7,7 @@ import 'model/message.dart';
 class ChatsProvider {
 
   static final List<Chat> chats = [
-    Chat(userName: "Rayhaan Bashir", timestamp: "1:50", unreadMessages: 3, isActive: true,
+    Chat(userName: "Asmare Admasu", timestamp: "1:50", unreadMessages: 3, isActive: true,
       messages: [
         Message(id: 0, uid: "ME", message: "Cool, I'll pass on the details hopefully it will go through the database. Btw how's your family?"),
         Message(id: 1, uid: "OTHER", message: "Good night. Thank you"),
@@ -17,7 +18,7 @@ class ChatsProvider {
       ],
     ),
 
-    Chat(userName: "Christof John", timestamp: "1:23", unreadMessages: 3, isActive: false,
+    Chat(userName: "eya John", timestamp: "1:23", unreadMessages: 3, isActive: false,
       messages: [
         Message(id: 0, uid: "ME", message: "Cool, I'll pass on the details hopefully it will go through the database. Btw how's your family?"),
         Message(id: 1, uid: "OTHER", message: "Good night. Thank you"),
@@ -28,7 +29,7 @@ class ChatsProvider {
       ],
     ),
 
-    Chat(userName: "Aiman Khan", timestamp: "1:05", unreadMessages: 0, isActive: true,
+    Chat(userName: "Aman john", timestamp: "1:05", unreadMessages: 0, isActive: true,
       messages: [
         Message(id: 0, uid: "ME", message: "Cool, I'll pass on the details hopefully it will go through the database. Btw how's your family?"),
         Message(id: 1, uid: "OTHER", message: "Good night. Thank you"),
