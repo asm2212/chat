@@ -3,7 +3,7 @@ class Message {
   String uid;
   String message;
 
-  Message({this.id, this.uid, this.message});
+  Message({required this.id, required this.uid, required this.message});
 
 
 }

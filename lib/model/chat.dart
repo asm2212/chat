@@ -1,4 +1,6 @@
-import 'package:chat_app/model/message.dart';
+
+
+import 'package:chat/model/message.dart';
 
 class Chat {
 
@@ -9,7 +11,7 @@ class Chat {
   List<Message> messages;
   bool isActive;
 
-  Chat({this.userName, this.profilePic, this.unreadMessages, this.timestamp, this.messages, this.isActive});
+  Chat({ required this.userName, required this.profilePic, required this.unreadMessages,required this.timestamp,required this.messages, required this.isActive});
 
 
 }

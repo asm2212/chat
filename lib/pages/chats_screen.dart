@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:chat_app/chats_provider.dart';
-import 'package:chat_app/model/chat.dart';
-import 'package:chat_app/pages/chat_screen.dart';
-import 'package:chat_app/pictures_provider.dart';
+import 'package:chat/chats_provider.dart';
+import 'package:chat/model/chat.dart';
+import 'package:chat/pages/chat_screen.dart';
+import 'package:chat/pictures_provider.dart';
 import 'package:flutter/material.dart';
 
 class ChatsScreen extends StatelessWidget {

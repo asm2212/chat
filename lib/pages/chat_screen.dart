@@ -1,10 +1,8 @@
-
+import 'package:chat/model/chat.dart';
+import 'package:chat/model/message.dart';
 import 'package:flutter/material.dart';
 
-
-
 class ChatScreen extends StatelessWidget {
-
   final Chat chat;
 
   ChatScreen(this.chat);
@@ -14,31 +12,33 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: _buildAppBar(context),
-      body: ListView.builder(itemBuilder: (_, position){
-        Message message = chat.messages[position % chat.messages.length];
+      body: ListView.builder(
+        itemBuilder: (_, position) {
+          Message message = chat.messages[position];
 
-        if (message.uid == "ME") {
-          return _buildMyMessage(context, message.message);
-        } else {
-          return _buildReceivedMessage(context, message.message);
-        }
-
-      },
+          if (message.uid == "ME") {
+            return _buildMyMessage(context, message.message);
+          } else {
+            return _buildReceivedMessage(context, message.message);
+          }
+        },
         itemCount: chat.messages.length,
         physics: BouncingScrollPhysics(),
+        reverse: true,  // To display the latest messages at the bottom
       ),
       bottomNavigationBar: _buildBottomNavigationBar(context),
     );
   }
 
-  Widget _buildAppBar(BuildContext context) {
+  PreferredSizeWidget _buildAppBar(BuildContext context) {
     return AppBar(
       elevation: 0,
       actions: <Widget>[
         Padding(
           padding: const EdgeInsets.all(16),
-          child: Icon(Icons.phone,
-            color: Theme.of(context).accentColor,
+          child: Icon(
+            Icons.phone,
+            color: Theme.of(context).hintColor,
           ),
         )
       ],
@@ -60,29 +60,28 @@ class ChatScreen extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(width: 8,),
+          SizedBox(width: 8),
           Expanded(
-            child: Text(chat.userName,
+            child: Text(
+              chat.userName,
               maxLines: 1,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
-
         ],
       ),
     );
   }
 
-
-  Widget _buildMyMessage(context, String msg) {
+  Widget _buildMyMessage(BuildContext context, String msg) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           margin: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
@@ -90,10 +89,9 @@ class ChatScreen extends StatelessWidget {
           constraints: BoxConstraints(
             maxWidth: MediaQuery.of(context).size.width * 0.65,
           ),
-          child: Text(msg,
-            style: TextStyle(
-              fontSize: 15
-            ),
+          child: Text(
+            msg,
+            style: TextStyle(fontSize: 15),
           ),
         ),
       ],
@@ -104,9 +102,11 @@ class ChatScreen extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Expanded(child: Container(
-          child: Text(""),
-        )),
+        Expanded(
+          child: Container(
+            child: Text(""),
+          ),
+        ),
         Container(
           decoration: BoxDecoration(
             color: Color(0xff535875),
@@ -117,18 +117,15 @@ class ChatScreen extends StatelessWidget {
           constraints: BoxConstraints(
             maxWidth: MediaQuery.of(context).size.width * 0.65,
           ),
-          child: Text(msg,
-            style: TextStyle(
-            fontSize: 15
-            ),
+          child: Text(
+            msg,
+            style: TextStyle(fontSize: 15),
           ),
         ),
       ],
     );
   }
-  
-  
-  
+
   Widget _buildBottomNavigationBar(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 10, right: 10, bottom: 18, top: 12),
@@ -148,24 +145,25 @@ class ChatScreen extends StatelessWidget {
                   labelStyle: TextStyle(
                     color: Colors.grey,
                     fontSize: 12,
-                  )
+                  ),
                 ),
               ),
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.attach_file,
+            child: Icon(
+              Icons.attach_file,
               color: Colors.grey,
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(2.0),
-            child: FloatingActionButton(onPressed: (){},
-              backgroundColor: Theme.of(context).accentColor,
-              child: Icon(Icons.send,
+            child: FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: Theme.of(context).hintColor,
+              child: Icon(
+                Icons.send,
                 color: Colors.white,
               ),
             ),
@@ -174,9 +172,4 @@ class ChatScreen extends StatelessWidget {
       ),
     );
   }
-  
-
-
-
-
 }
